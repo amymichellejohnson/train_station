@@ -50,5 +50,15 @@ describe(Station) do
     end
   end
 
+  describe("#lines") do
+    it("retrieves all lines for given station") do
+      test_line = Line.new({:line_name => "Blue line", :line_id => nil})
+      test_line.save()
+      test_station = Station.new({:station_name => "Pioneer Square", :station_id =>nil})
+      test_station.save()
+      test_line.add_station(test_station)
+      expect(test_station.lines()).to(eq([test_line]))
+    end
+  end
 
 end

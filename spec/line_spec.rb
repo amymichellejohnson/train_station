@@ -37,37 +37,37 @@ end
 
   describe("#save") do
     it("saves train line to database") do
-    line = Line.new({:line_name => "Blue line", :line_id => nil})
-    line.save()
-    expect(Line.all()).to(eq([line]))
+      line = Line.new({:line_name => "Blue line", :line_id => nil})
+      line.save()
+      expect(Line.all()).to(eq([line]))
     end
   end
 
     describe("#==") do
-    it("is the same line if it has the same name") do
-      line1 = Line.new({:line_name => "Blue line", :line_id => nil})
-      line2 = Line.new({:line_name => "Blue line", :line_id => nil})
-      expect(line1).to(eq(line2))
+      it("is the same line if it has the same name") do
+        line1 = Line.new({:line_name => "Blue line", :line_id => nil})
+        line2 = Line.new({:line_name => "Blue line", :line_id => nil})
+        expect(line1).to(eq(line2))
+      end
     end
-  end
+
+  # describe("#add_station") do
+  #   it("adds a station and corresponding line to the stops table")
+  #   test_line = Line.new({:line_name => "Blue line", :line_id => nil})
+  #   test_line.save()
+  #   test_station = Station.new({:station_name => "Pioneer Square"})
+  #   test_station.save()
+  #   test_line.add_station(test_station)
+  #   expect
 
   describe("#stations") do
-    it("retrieves all stations for given line") do
-    test_line = Line.new({:line_name => "Blue line", :line_id => nil})
-    test_line.save()
-    test_station = Station.new({:station_name => "Pioneer Square", :station_id => test_line.id()})
-    test_
+    it("retrieves all stations w/ids for given line") do
+      test_line = Line.new({:line_name => "Blue line", :line_id => nil})
+      test_line.save()
+      test_station = Station.new({:station_name => "Pioneer Square", :station_id =>nil})
+      test_station.save()
+      test_line.add_station(test_station)
+      expect(test_line.stations()).to(eq([test_station]))
     end
-  end
-
-  describe("#add_station") do
-    test_line = Line.new({:line_name => "Blue line", :line_id => nil})
-    test_line.save()
-    test_station = Station.new({:station_name => "Pioneer Square"})
-    test_station.save()
-
-    test_line.add_station(test_station)
-
-    expect(test_line.stations()).to(eq()[test_station]))
   end
 end

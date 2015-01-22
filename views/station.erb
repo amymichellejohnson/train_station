@@ -1,0 +1,8 @@
+<h1>Here are the lines that connect with <%= @found_station.station_name() %>.</h1>
+</ul>
+<% @found_station.lines().each() do |line| %>
+<li><%= line.line_name() %></li>
+<% end %>
+</ul>
+
+<a href="/">Return to Main Page</a>
