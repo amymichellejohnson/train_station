@@ -1,0 +1,22 @@
+<h1>Welcome operator!</h1>
+
+<p>Add a line:</p>
+
+<form action="/line" method="post">
+  <label for="line">Enter the train line:</label>
+  <input id="line" name="line" type="text">
+
+  <button type="submit">Add</button>
+</form>
+
+<% if @lines.any?() %>
+  <p>Click on a line to add a station to this line:</p>
+
+  <ul>
+    <% @lines.each do |line| %>
+      <li><a href="/line/<%= line.line_id() %>"><%= line.line_name() %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no lines yet!</p>
+<% end %>

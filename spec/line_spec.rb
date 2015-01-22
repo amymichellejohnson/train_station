@@ -60,5 +60,14 @@ end
     end
   end
 
+  describe("#add_station") do
+    test_line = Line.new({:line_name => "Blue line", :line_id => nil})
+    test_line.save()
+    test_station = Station.new({:station_name => "Pioneer Square"})
+    test_station.save()
 
+    test_line.add_station(test_station)
+
+    expect(test_line.stations()).to(eq()[test_station]))
+  end
 end
