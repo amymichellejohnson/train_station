@@ -1,0 +1,24 @@
+<h1>Enter a station name for the <%= @found_line.line_name() %>.</h1>
+
+<form action="/station" method="post">
+  <input id="station_id" name="station_id" type="hidden" value="<%= @found_line.id() %>">
+
+  <label for="station_name">Station Name:</label>
+  <input id="station_name" name="station_name" type="text">
+
+  <button type="submit">Add</button>
+</form>
+
+<% if @found_line.().any?() %>
+  <h3>Here are all the stations for this line:</h3>
+
+  <ul>
+    <% @found_line.().each() do |station| %>
+      <li><%= task.description() %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no tasks yet!</p>
+<% end %>
+
+<a href="/">Return to Main Page</a>
